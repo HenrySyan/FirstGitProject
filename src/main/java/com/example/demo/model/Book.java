@@ -3,6 +3,7 @@ package com.example.demo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class Book {
     @GeneratedValue
     @Column
     private int id;
-    @Column
+    @Column(name = "name")
     private String name;
     @Column
     private String description;

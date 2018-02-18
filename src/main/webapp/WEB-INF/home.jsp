@@ -14,12 +14,13 @@
 </head>
 <body>
 <a href="/adminpage">admin page</a>
+
 <ul>
     <c:forEach items="${books}" var="book">
-        <li>${book.name} </li>
-        <li>${book.description}</li>
+        <img src="/image?fileName=${book.picUrl}" width="30"/>
+        <li>${book.name} ${book.description} </li>
+        <li>${book.author.name}</li>
     </c:forEach>
 </ul>
-
 </body>
 </html>
