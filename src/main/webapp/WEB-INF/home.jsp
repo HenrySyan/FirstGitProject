@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: HENO
@@ -12,11 +13,13 @@
     <title>Title</title>
 </head>
 <body>
-    <ul>
+<a href="/adminpage">admin page</a>
+<ul>
     <c:forEach items="${books}" var="book">
-    <li>${book.name} ${book.description}</li>
+        <li>${book.name} </li>
+        <li>${book.description}</li>
     </c:forEach>
-    </ul>
+</ul>
 
 </body>
 </html>

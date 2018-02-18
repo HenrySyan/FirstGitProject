@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "author")
+@Table(name = "book")
 @Entity
 public class Book {
     @Id
@@ -22,7 +22,7 @@ public class Book {
     private String name;
     @Column
     private String description;
-    @Column
+    @Column(name = "pic_url")
     private String picUrl;
     @ManyToOne
     private Author author;
