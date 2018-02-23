@@ -14,6 +14,7 @@
 </head>
 <body>
 <a href="/adminpage">admin page</a>
+<a href="/userpage">user page</a>
 
 <ul>
     <c:forEach items="${books}" var="book">

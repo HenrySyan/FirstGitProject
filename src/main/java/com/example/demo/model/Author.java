@@ -39,4 +39,8 @@ public class Author {
 
     @Column(name = "pic_url")
     private String picUrl;
+
+    @Column(name = "user_type")
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
 }

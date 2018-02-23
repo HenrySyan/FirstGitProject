@@ -8,6 +8,8 @@ import com.example.demo.repository.BookRepository;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -32,6 +34,9 @@ public class AdminController {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @RequestMapping(value = "/adminpage", method = RequestMethod.GET)
     public String maina(ModelMap map, @RequestParam(value = "message", required = false) String message) {
         map.addAttribute("author", new Author());
@@ -54,6 +59,7 @@ public class AdminController {
         File file = new File("D:\\mvc\\" + picName);
         multipartFile.transferTo(file);
         author.setPicUrl(picName);
+        author.setPassword(passwordEncoder.encode(author.getPassword()));
         authorRepository.save(author);
         return "redirect:/adminpage";
 
