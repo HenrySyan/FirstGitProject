@@ -3,6 +3,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Author;
 import com.example.demo.model.Book;
+import com.example.demo.model.UserType;
 import com.example.demo.repository.AuthorRepository;
 import com.example.demo.repository.BookRepository;
 import org.apache.commons.io.IOUtils;
@@ -60,6 +61,7 @@ public class AdminController {
         multipartFile.transferTo(file);
         author.setPicUrl(picName);
         author.setPassword(passwordEncoder.encode(author.getPassword()));
+        author.setUserType(UserType.USER);
         authorRepository.save(author);
         return "redirect:/adminpage";
 
