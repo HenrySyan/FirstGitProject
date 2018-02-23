@@ -13,6 +13,7 @@
     <title>Title</title>
 </head>
 <body>
+Welcome ${currrentUser.user.name}<br>
 <a href="/home">home page</a><br>
 Add User:
 <span style="color: red">${message}</span>

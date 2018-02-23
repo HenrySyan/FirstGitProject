@@ -6,9 +6,12 @@ import com.example.demo.model.Book;
 import com.example.demo.model.UserType;
 import com.example.demo.repository.AuthorRepository;
 import com.example.demo.repository.BookRepository;
+import com.example.demo.security.CurrentUser;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -40,10 +43,12 @@ public class AdminController {
 
     @RequestMapping(value = "/adminpage", method = RequestMethod.GET)
     public String maina(ModelMap map, @RequestParam(value = "message", required = false) String message) {
+        CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        map.addAttribute("currrentUser", principal);
         map.addAttribute("author", new Author());
         map.addAttribute("book", new Book());
         map.addAttribute("message", message != null ? message : "Welcome");
-        map.addAttribute("authors",authorRepository.findAll());
+        map.addAttribute("authors", authorRepository.findAll());
         return "admin";
     }
 
@@ -69,7 +74,7 @@ public class AdminController {
 
     @PostMapping("/addBook")
     public String addBook(@Valid @ModelAttribute("book") Book book, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
-        String picName = System.currentTimeMillis()+"_"+multipartFile.getOriginalFilename();
+        String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
         File file = new File("D:\\mvc\\" + picName);
         multipartFile.transferTo(file);
         book.setPicUrl(picName);
@@ -80,7 +85,7 @@ public class AdminController {
 
     @RequestMapping(value = "/image", method = RequestMethod.GET)
     public void getImageAsByteArray(HttpServletResponse response, @RequestParam("fileName") String fileName) throws IOException {
-        InputStream in = new FileInputStream("D:\\mvc\\"+fileName);
+        InputStream in = new FileInputStream("D:\\mvc\\" + fileName);
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         IOUtils.copy(in, response.getOutputStream());
     }
