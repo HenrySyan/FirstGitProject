@@ -16,6 +16,7 @@ import javax.persistence.*;
 @Table(name = "author")
 @Entity
 public class Author {
+
     @Id
     @GeneratedValue
     @Column

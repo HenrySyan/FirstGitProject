@@ -3,6 +3,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Author;
 import com.example.demo.model.Book;
+import com.example.demo.model.User;
 import com.example.demo.model.UserType;
 import com.example.demo.repository.AuthorRepository;
 import com.example.demo.repository.BookRepository;
@@ -33,10 +34,7 @@ import java.io.InputStream;
 public class AdminController {
 
     @Autowired
-    private AuthorRepository authorRepository;
-
-    @Autowired
-    private BookRepository bookRepository;
+    private AuthorRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -45,15 +43,14 @@ public class AdminController {
     public String maina(ModelMap map, @RequestParam(value = "message", required = false) String message) {
         CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         map.addAttribute("currrentUser", principal);
-        map.addAttribute("author", new Author());
-        map.addAttribute("book", new Book());
+        map.addAttribute("user", new User());
         map.addAttribute("message", message != null ? message : "Welcome");
-        map.addAttribute("authors", authorRepository.findAll());
+        map.addAttribute("users", userRepository.findAll());
         return "admin";
     }
 
-    @PostMapping("/addAuthor")
-    public String addAuthor(@Valid @ModelAttribute("author") Author author, BindingResult result, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
+    @PostMapping("/addUser")
+    public String addUser(@Valid @ModelAttribute("user") User user, BindingResult result, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
         StringBuilder sb = new StringBuilder();
         if (result.hasErrors()) {
             for (ObjectError objectError : result.getAllErrors()) {
@@ -64,21 +61,10 @@ public class AdminController {
         String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
         File file = new File("D:\\mvc\\" + picName);
         multipartFile.transferTo(file);
-        author.setPicUrl(picName);
-        author.setPassword(passwordEncoder.encode(author.getPassword()));
-        author.setUserType(UserType.USER);
-        authorRepository.save(author);
-        return "redirect:/adminpage";
-
-    }
-
-    @PostMapping("/addBook")
-    public String addBook(@Valid @ModelAttribute("book") Book book, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
-        String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
-        File file = new File("D:\\mvc\\" + picName);
-        multipartFile.transferTo(file);
-        book.setPicUrl(picName);
-        bookRepository.save(book);
+        user.setPicUrl(picName);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setUserType(UserType.USER);
+        userRepository.save(user);
         return "redirect:/adminpage";
 
     }

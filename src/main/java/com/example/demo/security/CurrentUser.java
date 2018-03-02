@@ -1,6 +1,7 @@
 package com.example.demo.security;
 
-import com.example.demo.model.Author;
+
+import com.example.demo.model.User;
 import com.example.demo.model.UserType;
 
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -9,22 +10,22 @@ import org.springframework.security.core.authority.AuthorityUtils;
 
 public class CurrentUser extends org.springframework.security.core.userdetails.User {
 
-    private Author author;
+    private User user;
 
-    public CurrentUser(Author author) {
-        super(author.getEmail(), author.getPassword(), AuthorityUtils.createAuthorityList(author.getUserType().name()));
-        this.author = author;
+    public CurrentUser(User user) {
+        super(user.getEmail(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getUserType().name()));
+        this.user = user;
     }
 
-    public Author getUser() {
-        return author;
+    public User getUser() {
+        return user;
     }
 
     public int getId() {
-        return author.getId();
+        return user.getId();
     }
 
     public UserType getRole() {
-        return author.getUserType();
+        return user.getUserType();
     }
 }

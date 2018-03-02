@@ -1,7 +1,9 @@
 package com.example.demo.security;
 
 import com.example.demo.model.Author;
+import com.example.demo.model.User;
 import com.example.demo.repository.AuthorRepository;
+import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,14 +14,14 @@ import org.springframework.stereotype.Service;
 public class CurrentUserDetailService implements UserDetailsService{
 
     @Autowired
-    private AuthorRepository authorRepository;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Author author = authorRepository.findOneByEmail(s);
-        if (author == null) {
+        User user = userRepository.findOneByEmail(s);
+        if (user == null) {
             throw new UsernameNotFoundException(String.format("User with email %s not found", s));
         }
-        return new CurrentUser(author);
+        return new CurrentUser(user);
     }
 }

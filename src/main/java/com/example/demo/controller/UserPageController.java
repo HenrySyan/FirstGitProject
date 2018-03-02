@@ -14,7 +14,7 @@ public class UserPageController {
 
 
     @RequestMapping(value = "/userpage", method = RequestMethod.GET)
-    public  String booksList(ModelMap map){
+    public  String message(ModelMap map){
         map.addAttribute("message","welcome");
         return "userpage";
     }
