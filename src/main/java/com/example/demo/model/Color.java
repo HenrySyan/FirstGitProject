@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -22,5 +23,9 @@ public class Color {
     @Column
     @NotEmpty(message = "name can not be empty")
     private String name;
+
+    @ManyToMany(mappedBy = "colors")
+    private Set<Product> products;
+
 
 }

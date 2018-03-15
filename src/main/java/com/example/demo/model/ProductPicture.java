@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -19,4 +20,7 @@ public class ProductPicture {
 
     @Column(name = "pic_url")
     private String picUrl;
+
+    @ManyToOne
+    private Product product;
 }

@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -28,23 +30,31 @@ public class Product {
     private String description;
 
     @Column
-    @NotEmpty(message= "category can not be empty")
+    @NotNull
+    private int price;
+
     @ManyToOne
     private Category category;
 
-    @Column
-    @NotEmpty(message= "tag can not be empty")
-    @ManyToOne
-    private Tag tag;
+    @ManyToMany
+    @JoinTable(name = "temp_tag", joinColumns = @JoinColumn(name = "first_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "second_id", referencedColumnName = "id"))
+    private Set<Tag> tags;
 
-    @Column
-    @ManyToOne
-    private ProductPicture productPicture;
 
-    @Column
-    @NotEmpty(message= "aditional information can not be empty")
+    @ManyToMany
+    @JoinTable(name = "temp_size", joinColumns = @JoinColumn(name = "first_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "second_id", referencedColumnName = "id"))
+    private Set<Size> sizes;
+
+
+    @ManyToMany
+    @JoinTable(name = "temp_color", joinColumns = @JoinColumn(name = "first_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "second_id", referencedColumnName = "id"))
+    private Set<Color> colors;
+
     @ManyToOne
-    private AditionalInf aditionalInf;
+    private User user;
 
 }
 

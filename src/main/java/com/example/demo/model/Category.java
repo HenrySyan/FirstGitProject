@@ -18,6 +18,7 @@ public class Category {
     @GeneratedValue
     @Column
     private int id;
+
     @Column
     @NotEmpty(message = "name can not be empty")
     private String name;

@@ -418,7 +418,7 @@ height: 35px;
 }
 .b-animate img{
 	margin-top: 4%;
-	display: -webkit-inline-box;
+	/*display: -webkit-inline-box;*/
 }
 .b-animate span{
 	display:block;
@@ -1754,7 +1754,7 @@ a.item_add1 {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   padding: 10px 15px;
-  background: url(0) #f54d56;
+  /*background: url() #f54d56;*/
 }
 a.item_add1:hover{
 	background:rgb(3, 193, 167);

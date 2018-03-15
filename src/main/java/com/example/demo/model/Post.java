@@ -12,20 +12,20 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "book")
+@Table(name = "post")
 @Entity
-public class Book {
+public class Post {
     @Id
     @GeneratedValue
     @Column
     private int id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
     @Column
     private String description;
     @Column(name = "pic_url")
     private String picUrl;
     @ManyToOne
-    private Author author;
+    private User user;
 
 }
