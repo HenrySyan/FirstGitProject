@@ -24,8 +24,8 @@ public class Color {
     @NotEmpty(message = "name can not be empty")
     private String name;
 
-    @ManyToMany(mappedBy = "colors")
-    private Set<Product> products;
+//    @ManyToMany(mappedBy = "colors")
+//    private Set<Product> products;
 
 
 }

@@ -44,4 +44,11 @@ public class User {
     @Column(name = "user_type")
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    @Column
+    private boolean verify;
+
+    @Column
+    private String token;
+
 }

@@ -1,13 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <%--
   Created by IntelliJ IDEA.
   User: HENO
-  Date: 2/15/2018
-  Time: 4:41 PM
+  Date: 3/25/2018
+  Time: 12:22 PM
   To change this template use File | Settings | File Templates.
-
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -35,7 +31,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="/js/simpleCart.min.js"> </script>
 </head>
 <body>
-
 <!--header-->
 <div class="header">
     <div class="header-top">
@@ -48,8 +43,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="header-left">
                 <ul>
-                    <li ><a href="/loginpage"  >Login</a></li>
-                    <li><a  href="/registerpage"  >Register</a></li>
+                    <li ><a class="lock"  href="login.html"  >Login</a></li>
+                    <li><a class="lock" href="register.html"  >Register</a></li>
+                    <li>
+                    </li>
 
                 </ul>
                 <div class="cart box_1">
@@ -74,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
                     <li class="active grid"><a class="color8" href="index.html">Home</a></li>
-                    <li><a class="color1" href="#">Men</a>
+                    <li><a class="color1" href="#">Shop</a>
                         <div class="mepanel">
                             <div class="row">
                                 <div class="col1">
@@ -130,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
                     </li>
-                    <li class="grid"><a class="color2" href="#">	Women</a>
+                    <li class="grid"><a class="color2" href="#">	Lookbook</a>
                         <div class="mepanel">
                             <div class="row">
                                 <div class="col1">
@@ -197,196 +194,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </div>
 
-<div class="banner">
-    <div class="container">
-        <script src="js/responsiveslides.min.js"></script>
-        <script>
-            $(function () {
-                $("#slider").responsiveSlides({
-                    auto: true,
-                    nav: true,
-                    speed: 500,
-                    namespace: "callbacks",
-                    pager: true,
-                });
-            });
-        </script>
-        <div  id="top" class="callbacks_container">
-            <ul class="rslides" id="slider">
-                <li>
-
-                    <div class="banner-text">
-                        <h3>Lorem Ipsum is not simply dummy  </h3>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
-                        <a href="single.html">Learn More</a>
-                    </div>
-
-                </li>
-                <li>
-
-                    <div class="banner-text">
-                        <h3>There are many variations </h3>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
-                        <a href="single.html">Learn More</a>
-
-                    </div>
-
-                </li>
-                <li>
-                    <div class="banner-text">
-                        <h3>Sed ut perspiciatis unde omnis</h3>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
-                        <a href="single.html">Learn More</a>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-    </div>
-</div>
 
 <!--content-->
-<div class="content">
+<div class="blog">
     <div class="container">
-        <div class="content-top">
-            <h1>NEW RELEASED</h1>
-            <div class="grid-in">
-                <div class="col-md-4 grid-top">
-                    <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi.jpg" alt="">
-                        <div class="b-wrapper">
-                            <h3 class="b-animate b-from-left    b-delay03 ">
-                                <span>T-Shirt</span>
-                            </h3>
-                        </div>
-                    </a>
+        <div class="blog-top">
+            <div class=" grid_3 grid-1">
+                <h3><a href="blog_single.html">Lorem Ipsum is simply</a></h3>
+                <a href="blog_single.html"><img src="images/blo.jpg" class="img-responsive" alt=""/></a>
 
-
-                    <p><a href="single.html">Contrary to popular</a></p>
+                <div class="blog-poast-info">
+                    <ul>
+                        <li><a class="admin" href="#"><i> </i> Admin </a></li>
+                        <li><span><i class="date"> </i>12-04-2015</span></li>
+                        <li><a class="p-blog" href="#"><i class="comment"> </i>No Comments</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-4 grid-top">
-                    <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi1.jpg" alt="">
-                        <div class="b-wrapper">
-                            <h3 class="b-animate b-from-left    b-delay03 ">
-                                <span>Shoe</span>
-                            </h3>
-                        </div>
-                    </a>
-                    <p><a href="single.html">classical Latin</a></p>
-                </div>
-                <div class="col-md-4 grid-top">
-                    <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi2.jpg" alt="">
-                        <div class="b-wrapper">
-                            <h3 class="b-animate b-from-left    b-delay03 ">
-                                <span>Bag</span>
-                            </h3>
-                        </div>
-                    </a>
-                    <p><a href="single.html">undoubtable</a></p>
-                </div>
-                <div class="clearfix"> </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
             </div>
-            <div class="grid-in">
-                <div class="col-md-4 grid-top">
-                    <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi3.jpg" alt="">
-                        <div class="b-wrapper">
-                            <h3 class="b-animate b-from-left    b-delay03 ">
-                                <span>Shirt</span>
-                            </h3>
-                        </div>
-                    </a>
-                    <p><a href="single.html">suffered alteration</a></p>
-                </div>
-                <div class="col-md-4 grid-top">
-                    <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi4.jpg" alt="">
-                        <div class="b-wrapper">
-                            <h3 class="b-animate b-from-left    b-delay03 ">
-                                <span>Bag</span>
-                            </h3>
-                        </div>
-                    </a>
-                    <p><a href="single.html">Content here</a></p>
-                </div>
-                <div class="col-md-4 grid-top">
-                    <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/pi5.jpg" alt="">
-                        <div class="b-wrapper">
-                            <h3 class="b-animate b-from-left    b-delay03 ">
-                                <span>Shoe</span>
-                            </h3>
-                        </div>
-                    </a>
-                    <p><a href="single.html">readable content</a></p>
-                </div>
-                <div class="clearfix"> </div>
+            <div class="single-bottom">
+
+                <h3>Leave A Comment</h3>
+                <form>
+
+                    <input type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
+
+                    <input type="text" value="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
+
+                    <input type="text" value="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
+
+
+                    <textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+
+                    <input type="submit" value="Send">
+
+                </form>
             </div>
         </div>
-        <!----->
-
-        <div class="content-top-bottom">
-            <h2>Featured Collections</h2>
-            <div class="col-md-6 men">
-                <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t1.jpg" alt="">
-                    <div class="b-wrapper">
-                        <h3 class="b-animate b-from-top top-in   b-delay03 ">
-                            <span>Lorem</span>
-                        </h3>
-                    </div>
-                </a>
-
-
-            </div>
-            <div class="col-md-6">
-                <div class="col-md1 ">
-                    <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t2.jpg" alt="">
-                        <div class="b-wrapper">
-                            <h3 class="b-animate b-from-top top-in1   b-delay03 ">
-                                <span>Lorem</span>
-                            </h3>
-                        </div>
-                    </a>
-
-                </div>
-                <div class="col-md2">
-                    <div class="col-md-6 men1">
-                        <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t3.jpg" alt="">
-                            <div class="b-wrapper">
-                                <h3 class="b-animate b-from-top top-in2   b-delay03 ">
-                                    <span>Lorem</span>
-                                </h3>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-md-6 men2">
-                        <a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="images/t4.jpg" alt="">
-                            <div class="b-wrapper">
-                                <h3 class="b-animate b-from-top top-in2   b-delay03 ">
-                                    <span>Lorem</span>
-                                </h3>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-    <!---->
-    <div class="content-bottom">
-        <ul>
-            <li><a href="#"><img class="img-responsive" src="images/lo.png" alt=""></a></li>
-            <li><a href="#"><img class="img-responsive" src="images/lo1.png" alt=""></a></li>
-            <li><a href="#"><img class="img-responsive" src="images/lo2.png" alt=""></a></li>
-            <li><a href="#"><img class="img-responsive" src="images/lo3.png" alt=""></a></li>
-            <li><a href="#"><img class="img-responsive" src="images/lo4.png" alt=""></a></li>
-            <li><a href="#"><img class="img-responsive" src="images/lo5.png" alt=""></a></li>
-            <div class="clearfix"> </div>
-        </ul>
     </div>
 </div>
+<!--//content-->
 <div class="footer">
     <div class="container">
         <div class="footer-top-at">

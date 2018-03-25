@@ -141,4 +141,6 @@ public class AdminController {
         productPictureRepository.save(productPicture);
         return "redirect:/adminpage";
     }
+
+
 }

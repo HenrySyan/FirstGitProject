@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.handler.CustomAuthenticationFailureHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,28 +25,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().
-                authorizeRequests()
+        http.csrf().disable()
+                .formLogin()
+                .loginPage("/loginpage")
+                .usernameParameter("j_email")
+                .passwordParameter("j_password")
+                .defaultSuccessUrl("/loginSuccess")
+                .failureHandler(new CustomAuthenticationFailureHandler())
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .and()
+                .authorizeRequests()
                 .antMatchers("/adminpage").hasAuthority("ADMIN")
                 .antMatchers("/home").permitAll()
                 .antMatchers("/userpage").hasAuthority("USER")
-                .antMatchers("/userpage").hasAuthority("ADMIN")
-//                .anyRequest().fullyAuthenticated()
-                .and()
-                .formLogin()
-//                .loginPage("/login")
-//                .failureUrl("/login?error")
-//                .usernameParameter("j_username")
-//                .passwordParameter("j_password")
-                .permitAll();
-//                .and()
-//                .logout()
-//                .logoutUrl("/logout")
-//                .deleteCookies("remember-me")
-//                .logoutSuccessUrl("/");
-//                .permitAll()
-//                .and()
-//                .rememberMe();
+                .anyRequest().permitAll();
+
     }
 
     @Autowired

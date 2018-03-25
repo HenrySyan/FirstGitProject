@@ -24,8 +24,8 @@ public class Size {
     @Enumerated(EnumType.STRING)
     private SizeVariations sizeVariations;
 
-    @ManyToMany(mappedBy = "sizes")
-    private Set<Product> products;
+//    @ManyToMany(mappedBy = "sizes")
+//    private Set<Product> products;
 
 
 }

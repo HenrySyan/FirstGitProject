@@ -23,7 +23,7 @@ public class Tag {
     @NotEmpty(message = "name can not be empty")
     private String name;
 
-    @ManyToMany(mappedBy = "tags")
-    private Set<Product> products;
+//    @ManyToMany(mappedBy = "tags")
+//    private Set<Product> products;
 
 }
