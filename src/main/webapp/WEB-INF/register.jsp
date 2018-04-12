@@ -1,15 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
-
-<%--
-  Created by IntelliJ IDEA.
-  User: HENO
-  Date: 2/15/2018
-  Time: 4:41 PM
-  To change this template use File | Settings | File Templates.
-
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -33,166 +24,83 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="/js/memenu.js"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
+    <script src="/js/main.js"></script>
     <script src="/js/simpleCart.min.js"> </script>
 </head>
 <body>
+<!--header-->
 <div class="header">
     <div class="header-top">
         <div class="container">
             <div class="search">
                 <form>
-                    <input type="text" value="Search " onfocus="this.value = '';"
-                           onblur="if (this.value == '') {this.value = 'Search';}"/>
-                    <input type="submit" value="Go"/>
+                    <input type="text" value="Search " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                    <input type="submit" value="Go">
                 </form>
             </div>
             <div class="header-left">
                 <ul>
-                    <li><a class="lock" href="/loginpage">Login</a></li>
-                    <li><a class="lock" href="/registerpage">Register</a></li>
+                    <li ><a class="lock"  href="/loginpage"  >Login</a></li>
+                    <li><a class="lock" href="/checkoutpage"  >Checkout</a></li>
                     <li>
                     </li>
 
                 </ul>
                 <div class="cart box_1">
-                    <a href="checkout.html">
-                        <h3>
-                            <div class="total">
-                                <span class="simpleCart_total"></span> (<span id="simpleCart_quantity"
-                                                                              class="simpleCart_quantity"></span> items)
-                            </div>
+                    <a href="/checkoutpage">
+                        <h3> <div class="total">
+                            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
                             <img src="images/cart.png" alt=""/></h3>
                     </a>
                     <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 
                 </div>
-                <div class="clearfix"></div>
+                <div class="clearfix"> </div>
             </div>
-            <div class="clearfix"></div>
+            <div class="clearfix"> </div>
         </div>
     </div>
     <div class="container">
         <div class="head-top">
             <div class="logo">
-                <a href="home.html"><img src="images/logo.png" alt=""/></a>
+                <a href="/home"><img src="images/logo.png" alt=""></a>
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
-                    <li class="active grid"><a class="color8" href="home.html">Home</a></li>
+                    <li class="active grid"><a class="color8" href="/home">Home</a></li>
                     <li><a class="color1" href="#">Shop</a>
                         <div class="mepanel">
                             <div class="row">
                                 <div class="col1">
                                     <div class="h_nav">
                                         <ul>
-                                            <li><a href="products.html">Accessories</a></li>
-                                            <li><a href="products.html">Bags</a></li>
-                                            <li><a href="products.html">Caps  Hats</a></li>
-                                            <li><a href="products.html">Hoodies  Sweatshirts</a></li>
-                                            <li><a href="products.html">Jackets  Coats</a></li>
-                                            <li><a href="products.html">Jeans</a></li>
-                                            <li><a href="products.html">Jewellery</a></li>
-                                            <li><a href="products.html">Jumpers  Cardigans</a></li>
-                                            <li><a href="products.html">Leather Jackets</a></li>
-                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
-                                            <li><a href="products.html">Loungewear</a></li>
+                                            <ul>
+                                                <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                                    <li><a href="/productpage?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                                                </c:forEach>
+                                            </ul>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Shirts</a></li>
-                                            <li><a href="products.html">Shoes, Boots  Trainers</a></li>
-                                            <li><a href="products.html">Shorts</a></li>
-                                            <li><a href="products.html">Suits  Blazers</a></li>
-                                            <li><a href="products.html">Sunglasses</a></li>
-                                            <li><a href="products.html">Sweatpants</a></li>
-                                            <li><a href="products.html">Swimwear</a></li>
-                                            <li><a href="products.html">Trousers  Chinos</a></li>
-                                            <li><a href="products.html">T-Shirts</a></li>
-                                            <li><a href="products.html">Underwear  Socks</a></li>
-                                            <li><a href="products.html">Vests</a></li>
-                                        </ul>
+
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
                                         <h4>Popular Brands</h4>
                                         <ul>
-                                            <li><a href="products.html">Levis</a></li>
-                                            <li><a href="products.html">Persol</a></li>
-                                            <li><a href="products.html">Nike</a></li>
-                                            <li><a href="products.html">Edwin</a></li>
-                                            <li><a href="products.html">New Balance</a></li>
-                                            <li><a href="products.html">Jack  Jones</a></li>
-                                            <li><a href="products.html">Paul Smith</a></li>
-                                            <li><a href="products.html">Ray-Ban</a></li>
-                                            <li><a href="products.html">Wood Wood</a></li>
+                                            <c:forEach items="${brands}" var="brand">
+                                                <li><a href="/getProductsByBrand?brandId=${brand.id}">${brand.name}</a></li>
+                                            </c:forEach>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="grid"><a class="color2" href="#"> Lookbook</a>
-                        <div class="mepanel">
-                            <div class="row">
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Accessories</a></li>
-                                            <li><a href="products.html">Bags</a></li>
-                                            <li><a href="products.html">Caps  Hats</a></li>
-                                            <li><a href="products.html">Hoodies  Sweatshirts</a></li>
-                                            <li><a href="products.html">Jackets  Coats</a></li>
-                                            <li><a href="products.html">Jeans</a></li>
-                                            <li><a href="products.html">Jewellery</a></li>
-                                            <li><a href="products.html">Jumpers  Cardigans</a></li>
-                                            <li><a href="products.html">Leather Jackets</a></li>
-                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
-                                            <li><a href="products.html">Loungewear</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Shirts</a></li>
-                                            <li><a href="products.html">Shoes, Boots  Trainers</a></li>
-                                            <li><a href="products.html">Shorts</a></li>
-                                            <li><a href="products.html">Suits  Blazers</a></li>
-                                            <li><a href="products.html">Sunglasses</a></li>
-                                            <li><a href="products.html">Sweatpants</a></li>
-                                            <li><a href="products.html">Swimwear</a></li>
-                                            <li><a href="products.html">Trousers  Chinos</a></li>
-                                            <li><a href="products.html">T-Shirts</a></li>
-                                            <li><a href="products.html">Underwear  Socks</a></li>
-                                            <li><a href="products.html">Vests</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <h4>Popular Brands</h4>
-                                        <ul>
-                                            <li><a href="products.html">Levis</a></li>
-                                            <li><a href="products.html">Persol</a></li>
-                                            <li><a href="products.html">Nike</a></li>
-                                            <li><a href="products.html">Edwin</a></li>
-                                            <li><a href="products.html">New Balance</a></li>
-                                            <li><a href="products.html">Jack  Jones</a></li>
-                                            <li><a href="products.html">Paul Smith</a></li>
-                                            <li><a href="products.html">Ray-Ban</a></li>
-                                            <li><a href="products.html">Wood Wood</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a class="color4" href="blog.html">Blog</a></li>
-                    <li><a class="color6" href="contact.html">Conact</a></li>
+                    <li><a class="color6" href="/userpage">UserPage</a></li>
                 </ul>
             </div>
 
@@ -214,11 +122,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <spring:input path="name" placeholder="Please input your Name"/>
                     <spring:input path="surname" placeholder="Please input your Surname"/>
                     <spring:input path="email" placeholder="Please input your Email"/>
-                    <%--<button type="submit" class="btn btn-default">Signup</button>--%>
-                <%--<a class="news-letter" href="#">--%>
-                    <%--<label class="checkbox"><input type="checkbox" name="checkbox" checked=""/><i> </i>Sign Up for--%>
-                        <%--Newsletter</label>--%>
-                <%--</a>--%>
             </div>
             <div class="col-md-6 register-bottom-grid">
                 <h3>Login information</h3>

@@ -1,8 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: HENO
   Date: 3/25/2018
-  Time: 12:31 PM
+  Time: 12:30 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -28,6 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="/js/memenu.js"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
+    <script src="/js/main.js"></script>
     <script src="/js/simpleCart.min.js"> </script>
 </head>
 <body>
@@ -43,14 +46,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="header-left">
                 <ul>
-                    <li ><a class="lock"  href="login.html"  >Login</a></li>
-                    <li><a class="lock" href="register.html"  >Register</a></li>
+                    <li ><a class="lock"  href="/loginpage"  >Login</a></li>
+                    <li><a class="lock" href="/checkoutpage"  >Checkout</a></li>
                     <li>
                     </li>
 
                 </ul>
                 <div class="cart box_1">
-                    <a href="checkout.html">
+                    <a href="/checkoutpage">
                         <h3> <div class="total">
                             <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
                             <img src="images/cart.png" alt=""/></h3>
@@ -66,125 +69,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="head-top">
             <div class="logo">
-                <a href="index.html"><img src="images/logo.png" alt=""></a>
+                <a href="/home"><img src="images/logo.png" alt=""></a>
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
-                    <li class="active grid"><a class="color8" href="index.html">Home</a></li>
+                    <li class="active grid"><a class="color8" href="/home">Home</a></li>
                     <li><a class="color1" href="#">Shop</a>
                         <div class="mepanel">
                             <div class="row">
                                 <div class="col1">
                                     <div class="h_nav">
                                         <ul>
-                                            <li><a href="products.html">Accessories</a></li>
-                                            <li><a href="products.html">Bags</a></li>
-                                            <li><a href="products.html">Caps & Hats</a></li>
-                                            <li><a href="products.html">Hoodies & Sweatshirts</a></li>
-                                            <li><a href="products.html">Jackets & Coats</a></li>
-                                            <li><a href="products.html">Jeans</a></li>
-                                            <li><a href="products.html">Jewellery</a></li>
-                                            <li><a href="products.html">Jumpers & Cardigans</a></li>
-                                            <li><a href="products.html">Leather Jackets</a></li>
-                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
-                                            <li><a href="products.html">Loungewear</a></li>
+                                            <ul>
+                                                <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                                    <li><a href="/productpage?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                                                </c:forEach>
+                                            </ul>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Shirts</a></li>
-                                            <li><a href="products.html">Shoes, Boots & Trainers</a></li>
-                                            <li><a href="products.html">Shorts</a></li>
-                                            <li><a href="products.html">Suits & Blazers</a></li>
-                                            <li><a href="products.html">Sunglasses</a></li>
-                                            <li><a href="products.html">Sweatpants</a></li>
-                                            <li><a href="products.html">Swimwear</a></li>
-                                            <li><a href="products.html">Trousers & Chinos</a></li>
-                                            <li><a href="products.html">T-Shirts</a></li>
-                                            <li><a href="products.html">Underwear & Socks</a></li>
-                                            <li><a href="products.html">Vests</a></li>
-                                        </ul>
+
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
                                         <h4>Popular Brands</h4>
                                         <ul>
-                                            <li><a href="products.html">Levis</a></li>
-                                            <li><a href="products.html">Persol</a></li>
-                                            <li><a href="products.html">Nike</a></li>
-                                            <li><a href="products.html">Edwin</a></li>
-                                            <li><a href="products.html">New Balance</a></li>
-                                            <li><a href="products.html">Jack & Jones</a></li>
-                                            <li><a href="products.html">Paul Smith</a></li>
-                                            <li><a href="products.html">Ray-Ban</a></li>
-                                            <li><a href="products.html">Wood Wood</a></li>
+                                            <c:forEach items="${brands}" var="brand">
+                                                <li><a href="/getProductsByBrand?brandId=${brand.id}">${brand.name}</a></li>
+                                            </c:forEach>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="grid"><a class="color2" href="#">	Lookbook</a>
-                        <div class="mepanel">
-                            <div class="row">
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Accessories</a></li>
-                                            <li><a href="products.html">Bags</a></li>
-                                            <li><a href="products.html">Caps & Hats</a></li>
-                                            <li><a href="products.html">Hoodies & Sweatshirts</a></li>
-                                            <li><a href="products.html">Jackets & Coats</a></li>
-                                            <li><a href="products.html">Jeans</a></li>
-                                            <li><a href="products.html">Jewellery</a></li>
-                                            <li><a href="products.html">Jumpers & Cardigans</a></li>
-                                            <li><a href="products.html">Leather Jackets</a></li>
-                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
-                                            <li><a href="products.html">Loungewear</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Shirts</a></li>
-                                            <li><a href="products.html">Shoes, Boots & Trainers</a></li>
-                                            <li><a href="products.html">Shorts</a></li>
-                                            <li><a href="products.html">Suits & Blazers</a></li>
-                                            <li><a href="products.html">Sunglasses</a></li>
-                                            <li><a href="products.html">Sweatpants</a></li>
-                                            <li><a href="products.html">Swimwear</a></li>
-                                            <li><a href="products.html">Trousers & Chinos</a></li>
-                                            <li><a href="products.html">T-Shirts</a></li>
-                                            <li><a href="products.html">Underwear & Socks</a></li>
-                                            <li><a href="products.html">Vests</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <h4>Popular Brands</h4>
-                                        <ul>
-                                            <li><a href="products.html">Levis</a></li>
-                                            <li><a href="products.html">Persol</a></li>
-                                            <li><a href="products.html">Nike</a></li>
-                                            <li><a href="products.html">Edwin</a></li>
-                                            <li><a href="products.html">New Balance</a></li>
-                                            <li><a href="products.html">Jack & Jones</a></li>
-                                            <li><a href="products.html">Paul Smith</a></li>
-                                            <li><a href="products.html">Ray-Ban</a></li>
-                                            <li><a href="products.html">Wood Wood</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a class="color4" href="blog.html">Blog</a></li>
-                    <li><a class="color6" href="contact.html">Conact</a></li>
+                    <li><a class="color6" href="/userpage">UserPage</a></li>
                 </ul>
             </div>
 
@@ -208,40 +130,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="menu">
                     <li class="item1"><a href="#">Men </a>
                         <ul class="cute">
-                            <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="#">Automatic Fails </a></li>
+                            <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                <li><a href="/getMensProducts?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </li>
                     <li class="item2"><a href="#">Women </a>
                         <ul class="cute">
-                            <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="#">Automatic Fails </a></li>
+                            <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                <li><a href="/getWomansProducts?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </li>
                     <li class="item3"><a href="#">Kids</a>
                         <ul class="cute">
-                            <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="#">Automatic Fails</a></li>
-                        </ul>
-                    </li>
-                    <li class="item4"><a href="#">Accesories</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="#">Automatic Fails</a></li>
+                            <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                <li><a href="/getKidsProducts?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </li>
 
-                    <li class="item4"><a href="#">Shoes</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="#">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="#">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
             <!--initiate accordion-->
@@ -269,7 +177,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <div class="fit-top">
                     <h6 class="shop-top">Lorem Ipsum</h6>
-                    <a href="#" class="shop-now">SHOP NOW</a>
+                    <a href="single.html" class="shop-now">SHOP NOW</a>
                     <div class="clearfix"> </div>
                 </div>
             </div>
@@ -279,18 +187,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="tags">
                     <ul>
-                        <li><a href="#">design</a></li>
-                        <li><a href="#">fashion</a></li>
-                        <li><a href="#">lorem</a></li>
-                        <li><a href="#">dress</a></li>
-                        <li><a href="#">fashion</a></li>
-                        <li><a href="#">dress</a></li>
-                        <li><a href="#">design</a></li>
-                        <li><a href="#">dress</a></li>
-                        <li><a href="#">design</a></li>
-                        <li><a href="#">fashion</a></li>
-                        <li><a href="#">lorem</a></li>
-                        <li><a href="#">dress</a></li>
+
+                        <c:forEach items="${tags}" var="tag">
+                            <li><a href="/getProductByTag?tag=${tag.id}">${tag.name}</a></li>
+                        </c:forEach>
 
                         <div class="clearfix"> </div>
                     </ul>
@@ -305,11 +205,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="product-go">
                     <div class=" fashion-grid">
-                        <a href="#"><img class="img-responsive " src="images/p1.jpg" alt=""></a>
+                        <a href="single.html"><img class="img-responsive " src="images/p1.jpg" alt=""></a>
 
                     </div>
                     <div class=" fashion-grid1">
-                        <h6 class="best2"><a href="#" >Lorem ipsum dolor sit
+                        <h6 class="best2"><a href="single.html" >Lorem ipsum dolor sit
                             amet consectetuer  </a></h6>
 
                         <span class=" price-in1"> $40.00</span>
@@ -319,11 +219,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="product-go">
                     <div class=" fashion-grid">
-                        <a href="#"><img class="img-responsive " src="images/p2.jpg" alt=""></a>
+                        <a href="single.html"><img class="img-responsive " src="images/p2.jpg" alt=""></a>
 
                     </div>
                     <div class="fashion-grid1">
-                        <h6 class="best2"><a href="#" >Lorem ipsum dolor sit
+                        <h6 class="best2"><a href="single.html" >Lorem ipsum dolor sit
                             amet consectetuer </a></h6>
 
                         <span class=" price-in1"> $40.00</span>
@@ -334,35 +234,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </div>
             <div class=" per1">
-                <a href="#" ><img class="img-responsive" src="images/pro.jpg" alt="">
+                <a href="single.html" ><img class="img-responsive" src="images/pro.jpg" alt="">
                     <div class="six1">
                         <h4>DISCOUNT</h4>
                         <p>Up to</p>
                         <span>60%</span>
                     </div></a>
             </div>
+
         </div>
         <div class="col-md-9 product-price1">
             <div class="col-md-5 single-top">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li data-thumb="images/si.jpg">
-                            <img src="images/si.jpg" />
+                        <c:forEach items="${productPictures}" var="picture">
+                        <li data-thumb="/image?fileName=${picture.picUrl}">
+                            <img src="/image?fileName=${picture.picUrl}" />
                         </li>
-                        <li data-thumb="images/si1.jpg">
-                            <img src="images/si1.jpg" />
-                        </li>
-                        <li data-thumb="images/si2.jpg">
-                            <img src="images/si2.jpg" />
-                        </li>
-                        <li data-thumb="images/si.jpg">
-                            <img src="images/si.jpg" />
-                        </li>
+                        </c:forEach>
                     </ul>
                 </div>
                 <!-- FlexSlider -->
-                <script defer src="js/jquery.flexslider.js"></script>
-                <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+                <script defer src="/js/jquery.flexslider.js"></script>
+                <link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen" />
 
                 <script>
                     // Can also be used with $(document).ready()
@@ -376,7 +270,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="col-md-7 single-top-in simpleCart_shelfItem">
                 <div class="single-para ">
-                    <h4>Lorem Ipsum</h4>
+                    <h4>${product.name}</h4>
                     <div class="star-on">
                         <ul class="star-footer">
                             <li><a href="#"><i> </i></a></li>
@@ -386,13 +280,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="#"><i> </i></a></li>
                         </ul>
                         <div class="review">
-                            <a href="#"> 1 customer review </a>
+                            <a href="#"> </a>
 
                         </div>
                         <div class="clearfix"> </div>
                     </div>
 
-                    <h5 class="item_price">$ 95.00</h5>
+                    <h5 class="item_price">$ ${product.price}</h5>
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
                         diam nonummy nibh euismod tincidunt ut laoreet dolore
                         magna aliquam erat </p>
@@ -400,29 +294,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <ul>
                             <li>Color
                                 <select>
-                                    <option>Silver</option>
-                                    <option>Black</option>
-                                    <option>Dark Black</option>
-                                    <option>Red</option>
+                                    <c:forEach items="${product.colors}" var="color">
+                                    <option>${color.name}</option>
+                                    </c:forEach>
                                 </select></li>
                             <li class="size-in">Size<select>
-                                <option>Large</option>
-                                <option>Medium</option>
-                                <option>small</option>
-                                <option>Large</option>
-                                <option>small</option>
+                                <c:forEach items="${product.sizes}" var="size">
+                                <option>${size.sizeVariations}</option>
+                                </c:forEach>
                             </select></li>
                             <div class="clearfix"> </div>
                         </ul>
                     </div>
                     <ul class="tag-men">
                         <li><span>TAG</span>
-                            <span class="women1">: Women,</span></li>
-                        <li><span>SKU</span>
-                            <span class="women1">: CK09</span></li>
+                            <span class="women1">
+                                <c:forEach items="${product.tags}" var="tag">
+                                    ${tag.name}
+                                </c:forEach>
+                            </span></li>
                     </ul>
-                    <a href="#" class="add-cart item_add">ADD TO CART</a>
-
+                    <%--<a href="/addToCart?product=${product.id}" class="add-cart item_add" >ADD TO CART</a>--%>
+                    <spring:form action="/addToCart?products=${product.id}" modelAttribute="bagIttem" method="post" class="add-cart item_add" >
+                        <input type="submit" value="ADD TO CART"/>
+                    </spring:form>
                 </div>
             </div>
             <div class="clearfix"> </div>
@@ -432,14 +327,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="cd-tabs-navigation">
                         <li><a data-content="fashion"  href="#0">Description </a></li>
                         <li><a data-content="cinema" href="#0" >Addtional Informatioan</a></li>
-                        <li><a data-content="television" href="#0" class="selected ">Reviews (1)</a></li>
+                        <li><a data-content="television" href="#0" class="selected ">Reviews </a></li>
 
                     </ul>
                 </nav>
                 <ul class="cd-tabs-content">
                     <li data-content="fashion" >
                         <div class="facts">
-                            <p > There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined </p>
+                            <p > ${product.description} </p>
                             <ul>
                                 <li>Research</li>
                                 <li>Design and Development</li>
@@ -455,39 +350,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="facts1">
 
                             <div class="color"><p>Color</p>
-                                <span >Blue, Black, Red</span>
+                                <span >  <c:forEach items="${product.colors}" var="color">
+                                    ${color.name}
+                                </c:forEach></span>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="color">
                                 <p>Size</p>
-                                <span >S, M, L, XL</span>
+                                <span >  <c:forEach items="${product.sizes}" var="size">
+                                    ${size.sizeVariations}
+                                </c:forEach></span>
                                 <div class="clearfix"></div>
                             </div>
 
                         </div>
 
                     </li>
+                    <c:forEach items="${productComments}"  var="pc">
                     <li data-content="television" class="selected">
                         <div class="comments-top-top">
                             <div class="top-comment-left">
-                                <img class="img-responsive" src="images/co.png" alt="">
+                                <img class="img-responsive" src="/image?fileName=${pc.user.picUrl}" alt="">
                             </div>
                             <div class="top-comment-right">
-                                <h6><a href="#">Hendri</a> - September 3, 2014</h6>
-                                <ul class="star-footer">
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                </ul>
-                                <p>Wow nice!</p>
+                                <h6><a href="#">${pc.user.name}</a> ${pc.date}</h6>
+                                <p>${pc.description}</p>
                             </div>
                             <div class="clearfix"> </div>
-                            <a class="add-re" href="#">ADD REVIEW</a>
+                            </c:forEach>
                         </div>
-
+                        <spring:form action="/addComment?product=${product.id}" modelAttribute="productComment" method="post">
+                            <a class="add-re" >ADD REVIEW</a>
+                            <spring:input path="description" title="Description"/>
+                            <input type="submit" value="Save"/>
+                        </spring:form>
                     </li>
+
+
                     <div class="clearfix"></div>
                 </ul>
             </div>
@@ -576,6 +475,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <p >© 2015 New store All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
     </div>
 </div>
+
 
 </body>
 </html>

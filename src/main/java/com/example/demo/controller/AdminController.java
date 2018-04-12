@@ -52,6 +52,20 @@ public class AdminController {
     @Autowired
     private ProductPictureRepository productPictureRepository;
 
+    @Autowired
+    private SecondaryCategoryRepository secondaryCategoryRepository;
+
+    @Autowired
+
+    private BrandRepository brandRepository;
+
+    @Autowired
+
+    private SliderInfoRepository sliderInfoRepository;
+
+    @Autowired
+    private NewReleaseRepository newReleaseRepository;
+
 
 
     @RequestMapping(value = "/adminpage", method = RequestMethod.GET)
@@ -65,16 +79,24 @@ public class AdminController {
         map.addAttribute("product",new Product());
         map.addAttribute("size",new Size());
         map.addAttribute("category",new Category());
+        map.addAttribute("secondaryCategory",new SecondaryCategory());
         map.addAttribute("users", userRepository.findAll());
         map.addAttribute("categorys",categoryRepository.findAll());
+        map.addAttribute("secondaryCategorys",secondaryCategoryRepository.findAll());
         map.addAttribute("tags",tagRepository.findAll());
         map.addAttribute("sizes",sizeRepository.findAll());
         map.addAttribute("colors",colorRepository.findAll());
+        map.addAttribute("productPicture",new ProductPicture());
+        map.addAttribute("products",productRepository.findAll());
+        map.addAttribute("brands",brandRepository.findAll());
+        map.addAttribute("brand",new Brand());
+        map.addAttribute("sliderInfo",new SliderInfo());
+        map.addAttribute("newRelease",new NewRelease());
         return "admin";
     }
 
-    @PostMapping("/addUser")
-    public String addUser(@Valid @ModelAttribute("user") User user, BindingResult result, @RequestParam("picture") MultipartFile multipartFile) throws IOException {
+    @PostMapping("/addSliderInfo")
+    public String addUser(@Valid @ModelAttribute("sliderInfo") SliderInfo sliderInfo, BindingResult result) {
         StringBuilder sb = new StringBuilder();
         if (result.hasErrors()) {
             for (ObjectError objectError : result.getAllErrors()) {
@@ -82,13 +104,7 @@ public class AdminController {
             }
             return "redirect:/adminpage?message=" + sb.toString();
         }
-        String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
-        File file = new File("D:\\mvc\\" + picName);
-        multipartFile.transferTo(file);
-        user.setPicUrl(picName);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setUserType(UserType.USER);
-        userRepository.save(user);
+        sliderInfoRepository.save(sliderInfo);
         return "redirect:/adminpage";
 
     }
@@ -99,6 +115,8 @@ public class AdminController {
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         IOUtils.copy(in, response.getOutputStream());
     }
+
+
     @GetMapping("/deleteUser")
     public String deleteUser(@RequestParam("id") int id) {
         userRepository.delete(id);
@@ -116,9 +134,15 @@ public class AdminController {
         return "redirect:/adminpage";
     }
 
-    @PostMapping("/addCategory")
-    public String addCategory(@Valid @ModelAttribute("category") Category category){
-        categoryRepository.save(category);
+    @PostMapping("/addBrand")
+    public String addCategory(@Valid @ModelAttribute("brand") Brand brand){
+        brandRepository.save(brand);
+        return "redirect:/adminpage";
+    }
+
+    @PostMapping("/addSecondaryCategory")
+    public String addSecondaryCategory(@Valid @ModelAttribute("secondaryCategory") SecondaryCategory secondaryCategory){
+        secondaryCategoryRepository.save(secondaryCategory);
         return "redirect:/adminpage";
     }
 
@@ -135,12 +159,42 @@ public class AdminController {
         String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
         File file = new File("D:\\mvc\\" + picName);
         multipartFile.transferTo(file);
-        productPicture.setPicUrl(picName);
+        product.setPicUrl(picName);
+        CurrentUser principal = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        product.setUser(principal.getUser());
         productRepository.save(product);
-        productPicture.setProduct(product);
+        return "redirect:/adminpage";
+    }
+
+    @PostMapping("/addPhotosToProduct")
+    public String addPhotos(@Valid @ModelAttribute("productPicture") ProductPicture productPicture,
+                            BindingResult result, @RequestParam("picture") MultipartFile multipartFile)throws IOException{
+
+        StringBuilder sb = new StringBuilder();
+        if (result.hasErrors()) {
+            for (ObjectError objectError : result.getAllErrors()) {
+                sb.append(objectError.getDefaultMessage() + "<br>");
+            }
+            return "redirect:/adminpage?message=" + sb.toString();
+        }
+        String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
+        File file = new File("D:\\mvc\\" + picName);
+        multipartFile.transferTo(file);
+        productPicture.setPicUrl(picName);
         productPictureRepository.save(productPicture);
         return "redirect:/adminpage";
     }
 
+@PostMapping("/addNewRelease")
+    public String addNewRelease(@Valid @ModelAttribute("newRelease") NewRelease newRelease,
+                                @RequestParam("picture") MultipartFile multipartFile) throws IOException {
+
+    String picName = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
+    File file = new File("D:\\mvc\\" + picName);
+    multipartFile.transferTo(file);
+    newRelease.setPicUrl(picName);
+    newReleaseRepository.save(newRelease);
+    return "redirect:/adminpage";
+}
 
 }

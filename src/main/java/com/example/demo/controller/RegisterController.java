@@ -2,6 +2,9 @@ package com.example.demo.controller;
 
 import com.example.demo.model.User;
 import com.example.demo.model.UserType;
+import com.example.demo.repository.BrandRepository;
+import com.example.demo.repository.SecondaryCategoryRepository;
+import com.example.demo.repository.TagRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.util.EmailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +29,21 @@ public class RegisterController {
     @Autowired
     private EmailServiceImpl emailService;
 
+    @Autowired
+    private SecondaryCategoryRepository secondaryCategoryRepository;
+
+    @Autowired
+    private BrandRepository brandRepository;
+
+    @Autowired
+    private TagRepository tagRepository;
+
     @GetMapping(value = "/registerpage")
     public String login(ModelMap map){
         map.addAttribute("user", new User());
+        map.addAttribute("secondCategoryes", secondaryCategoryRepository.findAll());
+        map.addAttribute("brands", brandRepository.findAll());
+        map.addAttribute("tags",tagRepository.findAll());
         return "register";
     }
 

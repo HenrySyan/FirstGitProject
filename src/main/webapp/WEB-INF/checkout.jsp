@@ -1,8 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: HENO
   Date: 3/25/2018
-  Time: 12:25 PM
+  Time: 12:30 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -43,8 +44,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="header-left">
                 <ul>
-                    <li ><a class="lock"  href="login.html"  >Login</a></li>
-                    <li><a class="lock" href="register.html"  >Register</a></li>
+                    <li ><a class="lock"  href="/loginpage"  >Login</a></li>
+                    <li><a class="lock" href="/checkoutpage"  >Checkout</a></li>
                     <li>
                     </li>
 
@@ -66,125 +67,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="head-top">
             <div class="logo">
-                <a href="index.html"><img src="images/logo.png" alt=""></a>
+                <a href="/home"><img src="images/logo.png" alt=""></a>
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
-                    <li class="active grid"><a class="color8" href="index.html">Home</a></li>
+                    <li class="active grid"><a class="color8" href="/home">Home</a></li>
                     <li><a class="color1" href="#">Shop</a>
                         <div class="mepanel">
                             <div class="row">
                                 <div class="col1">
                                     <div class="h_nav">
                                         <ul>
-                                            <li><a href="products.html">Accessories</a></li>
-                                            <li><a href="products.html">Bags</a></li>
-                                            <li><a href="products.html">Caps & Hats</a></li>
-                                            <li><a href="products.html">Hoodies & Sweatshirts</a></li>
-                                            <li><a href="products.html">Jackets & Coats</a></li>
-                                            <li><a href="products.html">Jeans</a></li>
-                                            <li><a href="products.html">Jewellery</a></li>
-                                            <li><a href="products.html">Jumpers & Cardigans</a></li>
-                                            <li><a href="products.html">Leather Jackets</a></li>
-                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
-                                            <li><a href="products.html">Loungewear</a></li>
+                                            <ul>
+                                                <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                                    <li><a href="/productpage?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                                                </c:forEach>
+                                            </ul>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Shirts</a></li>
-                                            <li><a href="products.html">Shoes, Boots & Trainers</a></li>
-                                            <li><a href="products.html">Shorts</a></li>
-                                            <li><a href="products.html">Suits & Blazers</a></li>
-                                            <li><a href="products.html">Sunglasses</a></li>
-                                            <li><a href="products.html">Sweatpants</a></li>
-                                            <li><a href="products.html">Swimwear</a></li>
-                                            <li><a href="products.html">Trousers & Chinos</a></li>
-                                            <li><a href="products.html">T-Shirts</a></li>
-                                            <li><a href="products.html">Underwear & Socks</a></li>
-                                            <li><a href="products.html">Vests</a></li>
-                                        </ul>
+
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
                                         <h4>Popular Brands</h4>
                                         <ul>
-                                            <li><a href="products.html">Levis</a></li>
-                                            <li><a href="products.html">Persol</a></li>
-                                            <li><a href="products.html">Nike</a></li>
-                                            <li><a href="products.html">Edwin</a></li>
-                                            <li><a href="products.html">New Balance</a></li>
-                                            <li><a href="products.html">Jack & Jones</a></li>
-                                            <li><a href="products.html">Paul Smith</a></li>
-                                            <li><a href="products.html">Ray-Ban</a></li>
-                                            <li><a href="products.html">Wood Wood</a></li>
+                                            <c:forEach items="${brands}" var="brand">
+                                                <li><a href="/getProductsByBrand?brandId=${brand.id}">${brand.name}</a></li>
+                                            </c:forEach>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="grid"><a class="color2" href="#">	Lookbook</a>
-                        <div class="mepanel">
-                            <div class="row">
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Accessories</a></li>
-                                            <li><a href="products.html">Bags</a></li>
-                                            <li><a href="products.html">Caps & Hats</a></li>
-                                            <li><a href="products.html">Hoodies & Sweatshirts</a></li>
-                                            <li><a href="products.html">Jackets & Coats</a></li>
-                                            <li><a href="products.html">Jeans</a></li>
-                                            <li><a href="products.html">Jewellery</a></li>
-                                            <li><a href="products.html">Jumpers & Cardigans</a></li>
-                                            <li><a href="products.html">Leather Jackets</a></li>
-                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
-                                            <li><a href="products.html">Loungewear</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Shirts</a></li>
-                                            <li><a href="products.html">Shoes, Boots & Trainers</a></li>
-                                            <li><a href="products.html">Shorts</a></li>
-                                            <li><a href="products.html">Suits & Blazers</a></li>
-                                            <li><a href="products.html">Sunglasses</a></li>
-                                            <li><a href="products.html">Sweatpants</a></li>
-                                            <li><a href="products.html">Swimwear</a></li>
-                                            <li><a href="products.html">Trousers & Chinos</a></li>
-                                            <li><a href="products.html">T-Shirts</a></li>
-                                            <li><a href="products.html">Underwear & Socks</a></li>
-                                            <li><a href="products.html">Vests</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <h4>Popular Brands</h4>
-                                        <ul>
-                                            <li><a href="products.html">Levis</a></li>
-                                            <li><a href="products.html">Persol</a></li>
-                                            <li><a href="products.html">Nike</a></li>
-                                            <li><a href="products.html">Edwin</a></li>
-                                            <li><a href="products.html">New Balance</a></li>
-                                            <li><a href="products.html">Jack & Jones</a></li>
-                                            <li><a href="products.html">Paul Smith</a></li>
-                                            <li><a href="products.html">Ray-Ban</a></li>
-                                            <li><a href="products.html">Wood Wood</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a class="color4" href="blog.html">Blog</a></li>
-                    <li><a class="color6" href="contact.html">Conact</a></li>
+                    <li><a class="color6" href="/userpage">UserPage</a></li>
                 </ul>
             </div>
 
@@ -194,10 +114,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </div>
 
-
 <div class="container">
     <div class="check">
-        <h1>My Shopping Bag (2)</h1>
+        <h1>My Shopping Bag</h1>
+         <c:forEach items="${bagIttems}" var="bag">
         <div class="col-md-9 cart-items">
 
             <script>$(document).ready(function(c) {
@@ -208,16 +128,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 });
             });
             </script>
+
             <div class="cart-header">
+
                 <div class="close1"> </div>
+
                 <div class="cart-sec simpleCart_shelfItem">
+
                     <div class="cart-item cyc">
-                        <img src="images/pic1.jpg" class="img-responsive" alt=""/>
+                        <img src="/image?fileName=${bag.product.picUrl}" class="img-responsive" alt=""/>
                     </div>
                     <div class="cart-item-info">
-                        <h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>
+                        <h3><a href="#">${bag.product.name}</a><span>$ ${bag.product.price}</span></h3>
                         <ul class="qty">
-                            <li><p>Size : 5</p></li>
+                            <li><p></p></li>
                             <li><p>Qty : 1</p></li>
                         </ul>
 
@@ -226,57 +150,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Delivered in 2-3 bussiness days</span>
                             <div class="clearfix"></div>
                         </div>
+
                     </div>
+
                     <div class="clearfix"></div>
 
                 </div>
-            </div>
-            <script>$(document).ready(function(c) {
-                $('.close2').on('click', function(c){
-                    $('.cart-header2').fadeOut('slow', function(c){
-                        $('.cart-header2').remove();
-                    });
-                });
-            });
-            </script>
-            <div class="cart-header2">
-                <div class="close2"> </div>
-                <div class="cart-sec simpleCart_shelfItem">
-                    <div class="cart-item cyc">
-                        <img src="images/pic2.jpg" class="img-responsive" alt=""/>
-                    </div>
-                    <div class="cart-item-info">
-                        <h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>
-                        <ul class="qty">
-                            <li><p>Size : 5</p></li>
-                            <li><p>Qty : 1</p></li>
-                        </ul>
-                        <div class="delivery">
-                            <p>Service Charges : Rs.100.00</p>
-                            <span>Delivered in 2-3 bussiness days</span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
 
-                </div>
             </div>
+
         </div>
+
+        </c:forEach>
+
         <div class="col-md-3 cart-total">
             <a class="continue" href="#">Continue to basket</a>
             <div class="price-details">
                 <h3>Price Details</h3>
                 <span>Total</span>
-                <span class="total1">6200.00</span>
+                <span class="total1"></span>
                 <span>Discount</span>
-                <span class="total1">---</span>
+                <span class="total1"></span>
                 <span>Delivery Charges</span>
-                <span class="total1">150.00</span>
+                <span class="total1"></span>
                 <div class="clearfix"></div>
             </div>
             <ul class="total_price">
                 <li class="last_price"> <h4>TOTAL</h4></li>
-                <li class="last_price"><span>6350.00</span></li>
+                <li class="last_price"><span></span></li>
                 <div class="clearfix"> </div>
             </ul>
 

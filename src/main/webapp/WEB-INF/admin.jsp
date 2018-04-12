@@ -34,33 +34,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="/js/simpleCart.min.js"> </script>
 </head>
 <body>
+<div class="col1">
 Welcome ${currrentUser.user.name}<br>
 <a href="/home">home page</a><br>
-Add User:
+Add Slider info:
 <span style="color: red">${message}</span>
-<spring:form action="/addUser" modelAttribute="user" method="post" enctype="multipart/form-data">
-    <spring:input path="name" title="name"/><br>
-    <spring:input path="surname" title="surname"/><br>
-    <spring:input path="email" title="email"/><br>
-    <spring:password path="password" title="password"/><br>
-    <input type="file" name="picture">
+<spring:form action="/addSliderInfo" modelAttribute="sliderInfo" method="post" >
+    <spring:label path="title">Title:</spring:label>
+    <spring:input path="title" title="title"/><br>
+    <spring:label path="description">Description:</spring:label>
+    <spring:input path="description" title="description"/><br>
     <input type="submit" value="Save"/>
 </spring:form>
 
 Add Tag:
 <spring:form action="/addTag" modelAttribute="tag" method="post">
+    <spring:label path="name">Name:</spring:label>
     <spring:input path="name" title="name"/><br>
     <input type="submit" value="Save"/>
 </spring:form>
 
 Add color:
 <spring:form action="/addColor" modelAttribute="color" method="post">
+    <spring:label path="name">Name:</spring:label>
     <spring:input path="name" title="name"/><br>
     <input type="submit" value="Save"/>
 </spring:form>
 
-Add category:
-<spring:form action="/addCategory" modelAttribute="category" method="post">
+Add brand:
+<spring:form action="/addBrand" modelAttribute="brand" method="post">
+    <spring:label path="name">Name:</spring:label>
+    <spring:input path="name" title="name"/><br>
+    <input type="submit" value="Save"/>
+</spring:form>
+
+Add secondary category:
+<spring:form action="/addSecondaryCategory" modelAttribute="secondaryCategory" method="post">
+    <spring:label path="name">Name:</spring:label>
     <spring:input path="name" title="name"/><br>
     <input type="submit" value="Save"/>
 </spring:form>
@@ -75,16 +85,44 @@ Users:
 Add product:
 
 <spring:form action="/addProduct" modelAttribute="product" method="post" enctype="multipart/form-data">
-    name:<spring:input path="name" title="name"/><br>
-    description:<spring:input path="description" title="description"/><br>
-    price:<spring:input path="price" title="price"/><br>
-    <spring:radiobuttons path="category" items="${categorys}"/><br>
-    <spring:checkboxes path="tags" items="${tags}"/><br>
-    <spring:checkboxes path="colors" items="${colors}"/><br>
-    <spring:checkboxes path="sizes" items="${sizes}"/><br>
+    <spring:label path="name">Name:</spring:label>
+    <spring:input path="name" title="name"/><br>
+    <spring:label path="description">Description:</spring:label>
+    <spring:input path="description" title="description"/><br>
+    <spring:label path="price">Price:</spring:label>
+    <spring:input path="price" title="price"/><br>
+    <spring:label path="category">Category:</spring:label>
+    <spring:radiobuttons path="category" items="${categorys}" itemLabel="name"/><br>
+    <spring:label path="secondaryCategory">SecondaryCategoryes:</spring:label>
+    <spring:radiobuttons path="secondaryCategory" items="${secondaryCategorys}" itemLabel="name"/><br>
+    <spring:label path="tags">Tags:</spring:label>
+    <spring:checkboxes path="tags" items="${tags}" itemLabel="name"/><br>
+    <spring:label path="colors">Colors:</spring:label>
+    <spring:checkboxes path="colors" items="${colors}" itemLabel="name"/><br>
+    <spring:label path="brand">Brands:</spring:label>
+    <spring:checkboxes path="brand" items="${brands}" itemLabel="name"/><br>
+    <spring:label path="sizes">Size:</spring:label>
+    <spring:checkboxes path="sizes" items="${sizes}" itemLabel="sizeVariations" /><br>
+    <input type="file" name="picture"><br>
+    <input type="submit" value="Save"/>
+</spring:form>
+add product picture:
+<spring:form action="/addPhotosToProduct" modelAttribute="productPicture"  method="post" enctype="multipart/form-data">
+    <spring:label path="product">Name:</spring:label>
+    <spring:radiobuttons path="product" items="${products}" itemLabel="name"/>
     <input type="file" name="picture"><br>
     <input type="submit" value="Save"/>
 </spring:form>
 
+add new Release:
+<spring:form action="/addNewRelease" modelAttribute="newRelease"  method="post" enctype="multipart/form-data">
+    <spring:label path="name">Name:</spring:label>
+    <spring:input path="name" title="name"/><br>
+    <spring:label path="secondaryCategory">SecondaryCategoryes:</spring:label>
+    <spring:radiobuttons path="secondaryCategory" items="${secondaryCategorys}" itemLabel="name"/><br>
+    <input type="file" name="picture"><br>
+    <input type="submit" value="Save"/>
+</spring:form>
+</div>
 </body>
 </html>

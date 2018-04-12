@@ -36,6 +36,12 @@ public class Product {
     @ManyToOne
     private Category category;
 
+    @ManyToOne
+    private SecondaryCategory secondaryCategory;
+
+    @ManyToOne
+    private Brand brand;
+
     @ManyToMany
     @JoinTable(name = "temp_tag", joinColumns = @JoinColumn(name = "first_id",referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "second_id", referencedColumnName = "id"))
@@ -55,6 +61,9 @@ public class Product {
 
     @ManyToOne
     private User user;
+
+    @Column(name = "main_pic_url")
+    private String picUrl;
 
 }
 

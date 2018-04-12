@@ -40,6 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/adminpage").hasAuthority("ADMIN")
                 .antMatchers("/home").permitAll()
                 .antMatchers("/userpage").hasAuthority("USER")
+                .antMatchers("/addComment").hasAuthority("USER")
+                .antMatchers("/checkoutpage").hasAuthority("USER")
+                .antMatchers("/addToCart").hasAuthority("USER")
                 .anyRequest().permitAll();
 
     }

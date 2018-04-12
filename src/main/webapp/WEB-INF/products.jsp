@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: HENO
@@ -43,14 +44,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="header-left">
                 <ul>
-                    <li ><a class="lock"  href="login.html"  >Login</a></li>
-                    <li><a class="lock" href="games.html"  >Checkout</a></li>
+                    <li ><a class="lock"  href="/loginpage"  >Login</a></li>
+                    <li><a class="lock" href="/checkoutpage"  >Checkout</a></li>
                     <li>
                     </li>
 
                 </ul>
                 <div class="cart box_1">
-                    <a href="checkout.html">
+                    <a href="/checkoutpage">
                         <h3> <div class="total">
                             <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
                             <img src="images/cart.png" alt=""/></h3>
@@ -66,125 +67,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="head-top">
             <div class="logo">
-                <a href="index.html"><img src="images/logo.png" alt=""></a>
+                <a href="/home"><img src="images/logo.png" alt=""></a>
             </div>
             <div class=" h_menu4">
                 <ul class="memenu skyblue">
-                    <li class="active grid"><a class="color8" href="index.html">Home</a></li>
+                    <li class="active grid"><a class="color8" href="/home">Home</a></li>
                     <li><a class="color1" href="#">Shop</a>
                         <div class="mepanel">
                             <div class="row">
                                 <div class="col1">
                                     <div class="h_nav">
                                         <ul>
-                                            <li><a href="products.html">Accessories</a></li>
-                                            <li><a href="products.html">Bags</a></li>
-                                            <li><a href="products.html">Caps & Hats</a></li>
-                                            <li><a href="products.html">Hoodies & Sweatshirts</a></li>
-                                            <li><a href="products.html">Jackets & Coats</a></li>
-                                            <li><a href="products.html">Jeans</a></li>
-                                            <li><a href="products.html">Jewellery</a></li>
-                                            <li><a href="products.html">Jumpers & Cardigans</a></li>
-                                            <li><a href="products.html">Leather Jackets</a></li>
-                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
-                                            <li><a href="products.html">Loungewear</a></li>
+                                            <ul>
+                                                <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                                    <li><a href="/productpage?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                                                </c:forEach>
+                                            </ul>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Shirts</a></li>
-                                            <li><a href="products.html">Shoes, Boots & Trainers</a></li>
-                                            <li><a href="products.html">Shorts</a></li>
-                                            <li><a href="products.html">Suits & Blazers</a></li>
-                                            <li><a href="products.html">Sunglasses</a></li>
-                                            <li><a href="products.html">Sweatpants</a></li>
-                                            <li><a href="products.html">Swimwear</a></li>
-                                            <li><a href="products.html">Trousers & Chinos</a></li>
-                                            <li><a href="products.html">T-Shirts</a></li>
-                                            <li><a href="products.html">Underwear & Socks</a></li>
-                                            <li><a href="products.html">Vests</a></li>
-                                        </ul>
+
                                     </div>
                                 </div>
                                 <div class="col1">
                                     <div class="h_nav">
                                         <h4>Popular Brands</h4>
                                         <ul>
-                                            <li><a href="products.html">Levis</a></li>
-                                            <li><a href="products.html">Persol</a></li>
-                                            <li><a href="products.html">Nike</a></li>
-                                            <li><a href="products.html">Edwin</a></li>
-                                            <li><a href="products.html">New Balance</a></li>
-                                            <li><a href="products.html">Jack & Jones</a></li>
-                                            <li><a href="products.html">Paul Smith</a></li>
-                                            <li><a href="products.html">Ray-Ban</a></li>
-                                            <li><a href="products.html">Wood Wood</a></li>
+                                            <c:forEach items="${brands}" var="brand">
+                                                <li><a href="/getProductsByBrand?brandId=${brand.id}">${brand.name}</a></li>
+                                            </c:forEach>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="grid"><a class="color2" href="#">	Lookbook</a>
-                        <div class="mepanel">
-                            <div class="row">
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Accessories</a></li>
-                                            <li><a href="products.html">Bags</a></li>
-                                            <li><a href="products.html">Caps & Hats</a></li>
-                                            <li><a href="products.html">Hoodies & Sweatshirts</a></li>
-                                            <li><a href="products.html">Jackets & Coats</a></li>
-                                            <li><a href="products.html">Jeans</a></li>
-                                            <li><a href="products.html">Jewellery</a></li>
-                                            <li><a href="products.html">Jumpers & Cardigans</a></li>
-                                            <li><a href="products.html">Leather Jackets</a></li>
-                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
-                                            <li><a href="products.html">Loungewear</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <ul>
-                                            <li><a href="products.html">Shirts</a></li>
-                                            <li><a href="products.html">Shoes, Boots & Trainers</a></li>
-                                            <li><a href="products.html">Shorts</a></li>
-                                            <li><a href="products.html">Suits & Blazers</a></li>
-                                            <li><a href="products.html">Sunglasses</a></li>
-                                            <li><a href="products.html">Sweatpants</a></li>
-                                            <li><a href="products.html">Swimwear</a></li>
-                                            <li><a href="products.html">Trousers & Chinos</a></li>
-                                            <li><a href="products.html">T-Shirts</a></li>
-                                            <li><a href="products.html">Underwear & Socks</a></li>
-                                            <li><a href="products.html">Vests</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col1">
-                                    <div class="h_nav">
-                                        <h4>Popular Brands</h4>
-                                        <ul>
-                                            <li><a href="products.html">Levis</a></li>
-                                            <li><a href="products.html">Persol</a></li>
-                                            <li><a href="products.html">Nike</a></li>
-                                            <li><a href="products.html">Edwin</a></li>
-                                            <li><a href="products.html">New Balance</a></li>
-                                            <li><a href="products.html">Jack & Jones</a></li>
-                                            <li><a href="products.html">Paul Smith</a></li>
-                                            <li><a href="products.html">Ray-Ban</a></li>
-                                            <li><a href="products.html">Wood Wood</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a class="color4" href="blog.html">Blog</a></li>
-                    <li><a class="color6" href="contact.html">Conact</a></li>
+                    <li><a class="color6" href="/userpage">UserPage</a></li>
                 </ul>
             </div>
 
@@ -208,40 +128,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="menu">
                     <li class="item1"><a href="#">Men </a>
                         <ul class="cute">
-                            <li class="subitem1"><a href="single.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="single.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="single.html">Automatic Fails </a></li>
+                            <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                <li><a href="/getMensProducts?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </li>
                     <li class="item2"><a href="#">Women </a>
                         <ul class="cute">
-                            <li class="subitem1"><a href="single.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="single.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="single.html">Automatic Fails </a></li>
+                            <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                <li><a href="/getWomansProducts?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </li>
                     <li class="item3"><a href="#">Kids</a>
                         <ul class="cute">
-                            <li class="subitem1"><a href="single.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="single.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="single.html">Automatic Fails</a></li>
-                        </ul>
-                    </li>
-                    <li class="item4"><a href="#">Accesories</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="single.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="single.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="single.html">Automatic Fails</a></li>
+                            <c:forEach items="${secondCategoryes}" var="secondCategory">
+                                <li><a href="/getKidsProducts?id=${secondCategory.id}">${secondCategory.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </li>
 
-                    <li class="item4"><a href="#">Shoes</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
             <!--initiate accordion-->
@@ -279,18 +185,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="tags">
                     <ul>
-                        <li><a href="#">design</a></li>
-                        <li><a href="#">fashion</a></li>
-                        <li><a href="#">lorem</a></li>
-                        <li><a href="#">dress</a></li>
-                        <li><a href="#">fashion</a></li>
-                        <li><a href="#">dress</a></li>
-                        <li><a href="#">design</a></li>
-                        <li><a href="#">dress</a></li>
-                        <li><a href="#">design</a></li>
-                        <li><a href="#">fashion</a></li>
-                        <li><a href="#">lorem</a></li>
-                        <li><a href="#">dress</a></li>
+
+                        <c:forEach items="${tags}" var="tag">
+                            <li><a href="/getProductByTag?tag=${tag.id}">${tag.name}</a></li>
+                        </c:forEach>
 
                         <div class="clearfix"> </div>
                     </ul>
@@ -341,113 +239,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>60%</span>
                     </div></a>
             </div>
+
         </div>
+
+         <c:forEach items="${curnetProducts}" var="product">
         <div class="col-md-9 product1">
             <div class=" bottom-product">
                 <div class="col-md-4 bottom-cd simpleCart_shelfItem">
                     <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi3.jpg" alt="">
+                        <a href="/singleProduct?productid=${product.id}"><img class="img-responsive" src="/image?fileName=${product.picUrl}" alt="">
                             <div class="pro-grid">
                                 <span class="buy-in">Buy Now</span>
                             </div>
                         </a>
                     </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
+                    <p class="tun">${product.name}</p>
+                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$ ${product.price}</p></a>
                 </div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi1.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>					</div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi4.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>					</div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class=" bottom-product">
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi5.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>					</div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-                </div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi1.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>					</div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class=" bottom-product">
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi3.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-
-                </div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi4.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-                </div>
-                <div class="col-md-4 bottom-cd simpleCart_shelfItem">
-                    <div class="product-at ">
-                        <a href="single.html"><img class="img-responsive" src="images/pi5.jpg" alt="">
-                            <div class="pro-grid">
-                                <span class="buy-in">Buy Now</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="tun">It is a long established fact that a reader</p>
-                    <a href="#" class="item_add"><p class="number item_price"><i> </i>$500.00</p></a>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
+                </c:forEach>
 
         </div>
         <div class="clearfix"> </div>
