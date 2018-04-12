@@ -122,6 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <spring:input path="name" placeholder="Please input your Name"/>
                     <spring:input path="surname" placeholder="Please input your Surname"/>
                     <spring:input path="email" placeholder="Please input your Email"/>
+
             </div>
             <div class="col-md-6 register-bottom-grid">
                 <h3>Login information</h3>
@@ -129,10 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span>Password</span>
                     <spring:password path="password" placeholder="Please input your Password"/>
                 </div>
-                <div>
-                    <span>Confirm Password</span>
-                    <input type="password"/>
-                </div>
+
                 <button type="submit" value="submit">Signup</button>
 
             </div>
